@@ -86,20 +86,23 @@ public class Program
 	
 	public static double Power(string x, string y)
 {
+    // Check for null arguments
     if (x == null || y == null)
     {
         throw new ArgumentNullException();
     }
 
-    double a, b;
-
-    if (!double.TryParse(x, out a) || !double.TryParse(y, out b))
+    // Check for non-numeric inputs
+    double baseNum, exponent;
+    if (!double.TryParse(x, out baseNum) || !double.TryParse(y, out exponent))
     {
         throw new FormatException();
     }
 
-    return Math.Pow(a, b);
+    // Compute power if inputs are valid
+    return Math.Pow(baseNum, exponent);
 }
+
 
 
 }

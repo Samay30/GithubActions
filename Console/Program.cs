@@ -86,12 +86,20 @@ public class Program
 	
 	public static double Power(string x, string y)
 {
-   
-    double baseNum = Convert.ToDouble(x);
-    double exponent = Convert.ToDouble(y);
+    if (x == null || y == null)
+    {
+        throw new ArgumentNullException();
+    }
 
-    
-    return Math.Pow(baseNum, exponent);
+    double a, b;
+
+    if (!double.TryParse(x, out a) || !double.TryParse(y, out b))
+    {
+        throw new FormatException();
+    }
+
+    return Math.Pow(a, b);
 }
+
 
 }
